@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Johannes Brahms – Komponist der Romantik</title>
+<style>
+:root{--bg:#141414;--bg2:#1d1d1d;--card:#222;--line:#333;--tx:#e8e8e8;--mut:#9a9a9a;--acc:#cfcfcf;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#d9d9d9;--bg2:#cfcfcf;--card:#e6e6e6;--line:#b5b5b5;--tx:#1c1c1c;--mut:#565656;--acc:#333}}
+:root[data-theme="dark"]{--bg:#141414;--bg2:#1d1d1d;--card:#222;--line:#333;--tx:#e8e8e8;--mut:#9a9a9a;--acc:#cfcfcf}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--tx);font-family:Georgia,"Times New Roman",serif;line-height:1.7;overflow-x:hidden}
+@media (hover:hover) and (pointer:fine){body,a,button{cursor:none}}
+#dot{position:fixed;top:0;left:0;width:14px;height:14px;border-radius:50%;background:#eee;mix-blend-mode:difference;pointer-events:none;z-index:999;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s;display:none}
+#dot.big{width:44px;height:44px;background:#bbb}
+@media (hover:hover) and (pointer:fine){#dot{display:block}}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--acc);z-index:998}
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:16px 6vw;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(10px);font-family:system-ui,sans-serif;font-size:14px;letter-spacing:.08em}
+nav b{font-weight:600}nav div{display:flex;gap:22px;flex-wrap:wrap}
+nav a{color:var(--mut);text-decoration:none;transition:color .2s}nav a:hover{color:var(--tx)}
+body::before{content:"";position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+section{padding:110px 6vw;max-width:1100px;margin:auto}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;max-width:none;background:radial-gradient(ellipse at 50% 30%,var(--bg2),var(--bg) 70%);overflow:hidden}
+.hero h1{font-size:clamp(46px,10vw,130px);font-weight:400;letter-spacing:.02em;line-height:1.05}
+.hero p{color:var(--mut);margin-top:18px;font-family:system-ui,sans-serif;letter-spacing:.3em;text-transform:uppercase;font-size:13px}
+.keys{position:absolute;bottom:0;left:0;right:0;height:120px;display:flex;opacity:.5}
+.keys i{flex:1;border:1px solid var(--line);border-bottom:0;background:var(--bg2);transition:background .3s}
+.keys i:nth-child(3n){background:var(--card)}
+.keys i:hover{background:var(--acc)}
+.scroll{position:absolute;bottom:140px;font-size:12px;color:var(--mut);font-family:system-ui,sans-serif;letter-spacing:.2em;animation:fl 2s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(8px)}}
+h2{font-size:clamp(30px,5vw,52px);font-weight:400;margin-bottom:34px}
+h2 small{display:block;font-family:system-ui,sans-serif;font-size:12px;letter-spacing:.3em;color:var(--mut);margin-bottom:10px}
+.rv{opacity:0;transform:translateY(50px);transition:opacity .9s ease,transform .9s ease}
+.rv.l{transform:translateX(-60px)}.rv.r{transform:translateX(60px)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;transition:transform .3s,border-color .3s}
+.card:hover{transform:translateY(-6px);border-color:var(--mut)}
+.card span{display:block;font-family:system-ui,sans-serif;font-size:12px;letter-spacing:.2em;color:var(--mut);text-transform:uppercase;margin-bottom:6px}
+.card b{font-size:20px;font-weight:400}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.portrait{aspect-ratio:1/1;border-radius:16px;background:linear-gradient(160deg,#3a3a3a,#161616);position:relative;overflow:hidden;border:1px solid var(--line)}
+.portrait svg,.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.portrait figcaption{position:absolute;bottom:0;left:0;right:0;padding:12px 16px;background:linear-gradient(transparent,#000a);font:12px system-ui,sans-serif;color:#ccc}
+.tl{position:relative;padding-left:34px;border-left:2px solid var(--line)}
+.tl>div{position:relative;margin-bottom:34px}
+.tl>div::before{content:"";position:absolute;left:-42px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--acc)}
+.tl em{font-style:normal;font-family:system-ui,sans-serif;font-size:13px;letter-spacing:.15em;color:var(--mut)}
+.songs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.song h3{font-weight:400;font-size:24px;margin-bottom:8px}
+.song p{color:var(--mut);margin-bottom:16px;font-size:16px}
+.btn{display:inline-block;padding:10px 20px;border:1px solid var(--acc);border-radius:99px;color:var(--tx);text-decoration:none;font:14px system-ui,sans-serif;transition:background .25s,color .25s}
+.btn:hover{background:var(--acc);color:var(--bg)}
+.quote{text-align:center;font-size:clamp(22px,3.5vw,36px);font-style:italic;color:var(--acc);padding:90px 6vw;background:var(--bg2);max-width:none}
+.note{margin-top:22px;padding:18px 22px;border-left:3px solid var(--mut);background:var(--card);color:var(--mut);font-size:15px;border-radius:0 10px 10px 0}
+footer{padding:60px 6vw;border-top:1px solid var(--line);color:var(--mut);font:13px/1.9 system-ui,sans-serif;text-align:center;word-break:break-word}
+footer a{color:var(--mut)}
+@media(max-width:760px){.split{grid-template-columns:1fr}nav div{display:none}}
+@media(prefers-reduced-motion:reduce){.rv{transition:none;opacity:1;transform:none}.scroll{animation:none}}
+</style>
+</head>
+<body>
+<div id="dot"></div><div id="bar"></div>
+<nav><b>J. BRAHMS</b><div><a href="#leben">Leben</a><a href="#werke">Werke</a><a href="#lieder">Lieder</a><a href="#quellen">Quellen</a></div></nav>
+
+<section class="hero" id="top">
+  <h1 id="ht">Johannes<br>Brahms</h1>
+  <p>1833 – 1897 · Komponist der Romantik</p>
+  <div class="scroll">↓ SCROLLEN</div>
+  <div class="keys" id="keys"></div>
+</section>
+
+<section id="leben">
+  <h2 class="rv"><small>STECKBRIEF</small>Ein Leben für die Musik</h2>
+  <div class="facts">
+    <div class="card rv"><span>Geboren</span><b>7. Mai 1833, Hamburg</b></div>
+    <div class="card rv d1"><span>Gestorben</span><b>3. April 1897, Wien</b></div>
+    <div class="card rv d2"><span>Alter</span><b>63 Jahre</b></div>
+    <div class="card rv d3"><span>Beruf</span><b>Komponist, Dirigent, Pianist</b></div>
+    <div class="card rv d1"><span>Epoche</span><b>Romantik</b></div>
+  </div>
+</section>
+
+<section>
+  <div class="split">
+    <figure class="portrait rv l">
+      <svg viewBox="0 0 300 400" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#555"/><stop offset="1" stop-color="#1a1a1a"/></linearGradient></defs><circle cx="150" cy="140" r="62" fill="url(#g)"/><path d="M92 170c4 70 30 100 58 100s54-30 58-100c-14 30-34 40-58 40s-44-10-58-40z" fill="#444"/><path d="M40 400c0-90 50-120 110-120s110 30 110 120z" fill="#2c2c2c"/><path d="M90 120c10-60 110-60 120 0-20-26-100-26-120 0z" fill="#666"/></svg>
+      <img src="images/brahms.jpg" alt="Johannes Brahms" onerror="this.style.display='none'">
+      <figcaption>Johannes Brahms</figcaption>
+    </figure>
+    <div class="rv r">
+      <h2><small>WER WAR ER?</small>Vom Hamburger Jungen zum Weltstar</h2>
+      <p>Johannes Brahms gehört zu den bedeutendsten Komponisten des 19. Jahrhunderts. Sein Vater war selbst Musiker und brachte ihn schon früh mit Musik in Kontakt. Brahms verband die Gefühlstiefe der Romantik mit der strengen Form der Klassik – deshalb gilt er bis heute als einer der ganz Großen, der „drei B“ der Musik: Bach, Beethoven und Brahms.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="rv"><small>LEBENSLAUF</small>Die wichtigsten Stationen</h2>
+  <div class="tl">
+    <div class="rv"><em>1833</em><p>Johannes Brahms wird am 7. Mai in Hamburg geboren. Sein Vater ist ebenfalls Musiker.</p></div>
+    <div class="rv"><em>MIT 7 JAHREN</em><p>Der erste Klavierunterricht beginnt.</p></div>
+    <div class="rv"><em>MIT CA. 10 JAHREN</em><p>Brahms tritt zum ersten Mal öffentlich als Pianist auf.</p></div>
+    <div class="rv"><em>1853</em><p>Er lernt Robert Schumann kennen, der sein Talent erkennt und ihn unterstützt. Mit Schumanns Frau Clara verbindet ihn eine enge Freundschaft.</p></div>
+    <div class="rv"><em>SPÄTER</em><p>Brahms zieht nach Wien, wo er viele Jahre lebt und arbeitet.</p></div>
+    <div class="rv"><em>1897</em><p>Am 3. April stirbt Johannes Brahms in Wien.</p></div>
+  </div>
+</section>
+
+<div class="quote rv">„Ohne Handwerk hat die Kunst keinen Boden.“</div>
+
+<section id="werke">
+  <h2 class="rv"><small>ZUSATZWISSEN</small>Weitere berühmte Werke</h2>
+  <div class="facts">
+    <div class="card rv"><span>1868</span><b>Ein deutsches Requiem</b><p style="color:var(--mut);font-size:15px;margin-top:8px">Sein großes Chorwerk – es machte ihn europaweit berühmt.</p></div>
+    <div class="card rv d1"><span>1876</span><b>1. Sinfonie</b><p style="color:var(--mut);font-size:15px;margin-top:8px">Brahms arbeitete viele Jahre daran, bevor er sie veröffentlichte.</p></div>
+    <div class="card rv d2"><span>1869 / 1880</span><b>Ungarische Tänze</b><p style="color:var(--mut);font-size:15px;margin-top:8px">Temperamentvolle Stücke, die bis heute oft gespielt werden.</p></div>
+  </div>
+</section>
+
+<section id="lieder">
+  <h2 class="rv"><small>HÖRPROBEN</small>Bekannte Lieder und Musikstücke</h2>
+  <div class="songs">
+    <div class="card song rv"><h3>Guten Abend, gut’ Nacht</h3><p>Eines seiner bekanntesten Stücke – ein Schlaflied, das viele Menschen kennen.</p><a class="btn" href="https://youtu.be/tmHw2UfPQyk?si=bzrhD42dIu8zYeyb" target="_blank" rel="noopener">▶ Anhören</a>
+      <div class="note"><b>Symbolik:</b> Das Lied entstand in einer Zeit, in der viele kleine Kinder (Babys) an Krankheiten starben – deshalb auch der Text.</div></div>
+    <div class="card song rv d1"><h3>Von ewiger Liebe</h3><p>Ein ausdrucksvolles Lied über die ewige Liebe.</p><a class="btn" href="https://youtu.be/gLrz0xmB_nA?si=PZVmpWbzP-yTj6V8" target="_blank" rel="noopener">▶ Anhören</a></div>
+    <div class="card song rv"><h3>Wie bist du, meine Königin</h3><p>Ein romantisches Liebeslied von Brahms.</p><a class="btn" href="https://youtu.be/dDqFkurAoaM?si=DDil5xrrc80EGawY" target="_blank" rel="noopener">▶ Anhören</a></div>
+    <div class="card song rv d1"><h3>Vergebliches Ständchen</h3><p>Ein humorvolles Gespräch zwischen dem Liebhaber und der Geliebten.</p><a class="btn" href="https://youtu.be/uVU7QrimvBM?si=-_H1l3iezJW-eC5a" target="_blank" rel="noopener">▶ Anhören</a></div>
+    <div class="card song rv"><h3>Feldeinsamkeit</h3><p>Ein ruhiges Lied von Brahms.</p><a class="btn" href="https://youtu.be/1CtPU-PWMug?si=rPhBJOLh9Q8xKnyI" target="_blank" rel="noopener">▶ Anhören</a></div>
+  </div>
+  <p class="note rv">Wichtig: Viele Lieder werden von anderen Musikern gespielt, aber Melodien und Texte sind dieselben wie von Brahms.</p>
+</section>
+
+<footer id="quellen">
+  <b>Quellen</b><br>
+  Allgemeine Informationen (Lebenslauf): <a href="https://www.dhm.de/lemo/biografie/johannes-brahms" target="_blank" rel="noopener">dhm.de/lemo/biografie/johannes-brahms</a><br>
+  Lieder: YouTube (Links bei den Liedern oben)<br><br>
+  Handout – Johannes Brahms · Tom Groß · Klasse 9.1 · Thema: Musik
+</footer>
+
+<script>
+const dot=document.getElementById('dot');let x=0,y=0,cx=0,cy=0;
+addEventListener('mousemove',e=>{x=e.clientX;y=e.clientY});
+(function loop(){cx+=(x-cx)*.2;cy+=(y-cy)*.2;dot.style.left=cx+'px';dot.style.top=cy+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,.card').forEach(el=>{el.addEventListener('mouseenter',()=>dot.classList.add('big'));el.addEventListener('mouseleave',()=>dot.classList.remove('big'))});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const k=document.getElementById('keys');for(let i=0;i<28;i++)k.appendChild(document.createElement('i'));
+const bar=document.getElementById('bar'),ht=document.getElementById('ht');
+addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;bar.style.width=(scrollY/h*100)+'%';if(scrollY<innerHeight){ht.style.transform='translateY('+scrollY*.35+'px)';ht.style.opacity=1-scrollY/(innerHeight*.9)}},{passive:true});
+</script>
+</body>
+</html>
